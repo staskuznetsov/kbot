@@ -18,6 +18,4 @@ image:
 push:
 	docker push ${REGISTRY}/${APP}:${VERSION}-${shell dpkg --print-architecture}
 clean:
-#	cd ..
-#	rm -rf ./kbot
 	docker rmi ${REGISTRY}/${APP}:${VERSION}-${shell dpkg --print-architecture}
