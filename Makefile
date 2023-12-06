@@ -19,4 +19,8 @@ push:
 	docker push ${REGISTRY}/${APP}:${VERSION}-${shell dpkg --print-architecture}
 clean:
 	rm -rf kbot
+	rm -rf /tmp/*
+	rm -rf /var/tmp/*
+	rm -rf /usr/tmp/* 
+	rm -rf /edx/app/xqwatcher/src/*
 	docker rmi ${REGISTRY}/${APP}:${VERSION}-${shell dpkg --print-architecture}
