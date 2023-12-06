@@ -1,6 +1,6 @@
 APP=$(shell basename $(shell git remote get-url origin))
-REGISTRY=grc.io/staskuznetsov
-VERSION=$(shell git describe --tags --abbrev=0)-$(shell git rev-parse --short HEAD)
+REGISTRY=public.ecr.aws/m4r1g5r3
+VERSION=$(shell git describe --tags --abbrev=0)$(shell git rev-parse --short HEAD)
 TARGETOS=linux
 TARGETARCH=all
 format:
