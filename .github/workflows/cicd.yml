@@ -1,0 +1,28 @@
+name: KBOT-CICD
+
+on: push
+
+jobs:
+  ci:
+      name: CI
+      runs-on: ubuntu-latest
+      steps:
+      - name: CheckOut
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+#      - name: Run test
+#        run: make test
+      - name: Docker Hub Login
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_token }}
+      - name: build and push
+        env: 
+          APP: "kbot"
+          REGISTRY: ${{ secrets.DOCKERHUB_USERNAME }}
+        run: make image push
+
+      
+        
